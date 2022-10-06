@@ -3,8 +3,10 @@ package to.science.core.model.implementation;
 import java.util.LinkedHashMap;
 
 import to.science.core.model.model.AbstractAgent;
+import to.science.core.model.model.AbstractToScienceModel;
 import to.science.core.model.model.Agent;
 import to.science.core.model.model.SimpleObject;
+import to.science.core.model.model.ToScienceModel;
 
 
 /**
@@ -42,6 +44,7 @@ public class Creator extends AbstractAgent implements Agent, SimpleObject{
    * public Constructor
    */
   public Creator(){
+    
     simpleObject.put("academicDegree", "https://d-nb.info/standards/elementset/gnd#academicDegree/unknown");
     simpleObject.put("type", "Person");
   }
@@ -74,7 +77,7 @@ public class Creator extends AbstractAgent implements Agent, SimpleObject{
         .replace("https://d-nb.info/standards/elementset/gnd#academicDegree/", "");
     return acadDegree;
   }
-  
 
   
 }
+

@@ -13,37 +13,37 @@ import to.science.core.model.model.ToScienceModel;
 
 /**
  * <p>
- * An implementation for the description Array of toscience. 
+ * An implementation for the yearOfCopyright Array of toscience. 
  * Provides basic methods to create new instances and modify them.
  * </p>
  * <p>
  * As JSON model:
  * <pre>
- * "description" : [ "item 1", "item 2", "item 3", ...]
+ * "yearOfCopyright" : [ "item 1", "item 2", "item 3", ...]
  * </pre>
  * </p>
  * 
  * @author aquast
  *
  */
-public class Description extends AbstractSimpleArray implements SimpleArray, ToScienceModel {
+public class YearOfCopyright extends AbstractSimpleArray implements SimpleArray, ToScienceModel {
 
-  final static Logger logger = LoggerFactory.getLogger(Description.class);
+  final static Logger logger = LoggerFactory.getLogger(YearOfCopyright.class);
   public ArrayList<String> list = new ArrayList<String>();
   
   @Override
   public JSONObject getAmbJSONObject() {
-    JSONObject description = new JSONObject();
+    JSONObject yearOfCopyright = new JSONObject();
     // amb supports one description only. So we decide to take the first always
-    description.put("description", list.get(0));
-    return description;
+    yearOfCopyright.put("yearOfCopyright", list.get(0).substring(0, 4));
+    return yearOfCopyright;
   }
   
   @Override
   public AbstractSimpleArray getSimpleArrayFromAmbJSONObject(JSONObject ambJSONObject) {
-    Description description = new Description();
-    description.addItem(ambJSONObject.get("description").toString());
-    return description;
+    YearOfCopyright yearOfCopyright = new YearOfCopyright();
+    yearOfCopyright.addItem(ambJSONObject.get("datePublished").toString());
+    return yearOfCopyright;
   }
 
   @Override
@@ -55,35 +55,35 @@ public class Description extends AbstractSimpleArray implements SimpleArray, ToS
 
   @Override
   public JSONArray getJSONArray() {
-    JSONArray descriptArr = new JSONArray();
+    JSONArray yearArr = new JSONArray();
     for (int i=0; i < list.size(); i++) {
-      descriptArr.put(list.get(i));
+      yearArr.put(list.get(i));
     }
-    return descriptArr;
+    return yearArr;
   }
 
   @Override
   public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject) {
-    JSONObject descJSONObject = new JSONObject();
-    JSONArray descJSONArray = new JSONArray();
-    if (ambJSONObject.has("description")) {
-      String value = ambJSONObject.getString("description");
-      descJSONArray.put(value);
-      descJSONObject.put("description",  descJSONArray);
+    JSONObject yearJSONObject = new JSONObject();
+    JSONArray yearJSONArray = new JSONArray();
+    if (ambJSONObject.has("datePublished")) {
+      String value = ambJSONObject.getString("datePublished");
+      yearJSONArray.put(value.substring(0, 4));
+      yearJSONObject.put("yearOfCopyright",  yearJSONArray);
     }
-    return descJSONObject;
+    return yearJSONObject;
   }
 
   @Override
   public JSONObject getJSONObject() {
-    JSONObject descJSONObject = new JSONObject();
-    descJSONObject.put("description", getJSONArray());
-    return descJSONObject;
+    JSONObject yearJSONObject = new JSONObject();
+    yearJSONObject.put("yearOfCopyright", getJSONArray());
+    return yearJSONObject;
   }
 
   @Override
   public ToScienceModel setById(String id) {
-    logger.warn("Method not applicable for TOS Model Description");
+    logger.warn("Method not applicable for TOS Model YearOfCopyright");
     return null;
   }
  

@@ -5,6 +5,8 @@ package to.science.core.model.model;
 
 import org.json.JSONObject;
 
+import to.science.core.modelx.amb.AmbMapper;
+
 /**
  * <p>
  * Interface for all parts of the ToScience data model. Provides main methods to
@@ -31,30 +33,8 @@ import org.json.JSONObject;
  * @author aquast
  *
  */
-public interface ToScienceModel {
+public interface ToScienceModel{
 
-  /**
-   * <p>
-   * Get a AMBmodel object mapped from any ToScience model object
-   * </p>
-   * <p>
-   * For Schema Details see: <a href="https://dini-ag-kim.github.io/amb/draft/" target="_blank">AMB Schema</a>
-   * </p>
-   * <p>
-   * @return JSONObject with object data mapped to AMBmodel (formely known as LRMI)
-   * </p>
-   */
-  public JSONObject getAmbJSONObject();
-
-  /**
-   * <P>
-   * Get a specific ToScience model object by mapping an AMBmodel object into ToScience model object
-   * </p>
-   * <p>
-   * @return JSONObject with object data mapped from AMB (formely known as LRMI)
-   * </p>
-   */
-  public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject);
 
   /**
    * <p>
@@ -84,6 +64,5 @@ public interface ToScienceModel {
    * @param id an id expressed as complete Id-URI as String
    */
   public ToScienceModel setById(String id);
-
-
+  
 }

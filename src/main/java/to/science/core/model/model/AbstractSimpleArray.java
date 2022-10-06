@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import to.science.core.modelx.amb.AmbMapper;
+
 /**
  * <p>
  * An abstract model for different implementations of toscience ArrayList of String. 
@@ -22,7 +24,7 @@ import org.slf4j.LoggerFactory;
  * @author aquast
  *
  */
-public abstract class AbstractSimpleArray implements SimpleArray {
+public abstract class AbstractSimpleArray extends AbstractToScienceModel implements SimpleArray {
 
   final static Logger logger = LoggerFactory.getLogger(AbstractSimpleArray.class);
   public ArrayList<String> list = new ArrayList<String>();

@@ -11,6 +11,8 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import to.science.core.modelx.amb.AmbMapper;
+
 
 /**
  * <p>
@@ -30,7 +32,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author aquast
  */
-public abstract class AbstractSimpleObject implements SimpleObject{
+public abstract class AbstractSimpleObject extends AbstractToScienceModel implements SimpleObject {
   
   final static Logger logger = LoggerFactory.getLogger(AbstractSimpleObject.class);
 

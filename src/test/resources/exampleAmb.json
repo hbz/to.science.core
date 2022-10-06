@@ -1,0 +1,165 @@
+{
+  "funder": {
+    "type": "FundingScheme",
+    "name": "Netzwerk Landesportal ORCA.nrw",
+    "url": "https://www.dh.nrw/kooperationen/Netzwerk%20Landesportal%20DH.NRW-44"
+  },
+  "creator": [
+    {
+      "honoricPrefix": "Dr.",
+      "affiliation": {
+        "id": "https://ror.org/00n3mcd10",
+        "type": "Organization"
+      },
+      "name": "Andres Quast",
+      "id": "https://orcid.org/0000-0002-7662-8211",
+      "type": "Person"
+    },
+    {
+      "honoricPrefix": "Prof.",
+      "affiliation": {
+        "id": "https://ror.org/041fs4c33",
+        "type": "Organization"
+      },
+      "name": "Fiona Fahrenheit",
+      "id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/RmlvbmEgRmFocmVuaGVpdA==",
+      "type": "Person"
+    }
+  ],
+  "keywords": [
+    "Thermodynamik",
+    "Solarenergie",
+    "Isotopenchemie"
+  ],
+  "about": [
+    {
+      "inScheme": {
+        "id": "https://w3id.org/kim/hochschulfaechersystematik/scheme"
+      },
+      "prefLabel": {
+        "de": "Physik",
+        "uk": "Фізика",
+        "en": "Physics"
+      },
+      "id": "https://w3id.org/kim/hochschulfaechersystematik/n0128",
+      "type": "Concept"
+    },
+    {
+      "inScheme": {
+        "id": "https://w3id.org/kim/hochschulfaechersystematik/scheme"
+      },
+      "prefLabel": {
+        "de": "Facility Management",
+        "uk": "Організація управління підприємством",
+        "en": "Facility Management"
+      },
+      "id": "https://w3id.org/kim/hochschulfaechersystematik/n464",
+      "type": "Concept"
+    },
+    {
+      "inScheme": {
+        "id": "https://w3id.org/kim/hochschulfaechersystematik/scheme"
+      },
+      "prefLabel": {
+        "de": "Meteorologie",
+        "uk": "Метеорологія",
+        "en": "Meteorology"
+      },
+      "id": "https://w3id.org/kim/hochschulfaechersystematik/n110",
+      "type": "Concept"
+    }
+  ],
+  "inLanguage": [
+    "en",
+    "de"
+  ],
+  "description": "This Resource is an Example Resource made for ORCA Testing purposes",
+  "type": [
+    "LearningResource"
+  ],
+  "mainEntityOfPage": [
+    {
+      "dateCreated": "2022-09-20",
+      "id": "https://api.hoerkaen.hbz-nrw.de/resource/orca:3fc1c517-2667-403a-b13c-9c4bb83064a6"
+    }
+  ],
+  "encoding": [
+    {
+      "contentUrl": "https://api.hoerkaen.hbz-nrw.de/resource/orca:90611b59-4fc4-413a-b945-c92bc0ce40a6/data",
+      "type": "MediaObject"
+    }
+  ],
+  "@context": [
+    "https://w3id.org/kim/lrmi-profile/draft/context.jsonld",
+    {
+      "@language": "de"
+    }
+  ],
+  "datePublished": "2022-09-20",
+  "license": {
+    "id": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "contributor": [
+    {
+      "honoricPrefix": "Dr.",
+      "affiliation": {
+        "id": "https://ror.org/03dv91853",
+        "type": "Organization"
+      },
+      "name": "Chiara Celsius",
+      "id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/Q2hpYXJhIENlbHNpdXM=",
+      "type": "Person"
+    },
+    {
+      "honoricPrefix": "Prof.",
+      "affiliation": {
+        "id": "https://ror.org/014nnvj65",
+        "type": "Organization"
+      },
+      "name": "Kevin Kelvin",
+      "id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/S2V2aW4gS2Vsdmlu",
+      "type": "Person"
+    }
+  ],
+  "dateCreated": "2022-09-20",
+  "name": "An Example AMB File",
+  "learningResourceType": [
+    {
+      "inScheme": {
+        "id": "https://w3id.org/kim/hcrt/scheme"
+      },
+      "prefLabel": {
+        "de": "Fallstudie",
+        "uk": "Приклад",
+        "en": "Case Study"
+      },
+      "id": "https://w3id.org/kim/hcrt/case_study",
+      "type": "Concept"
+    },
+    {
+      "inScheme": {
+        "id": "https://w3id.org/kim/hcrt/scheme"
+      },
+      "prefLabel": {
+        "de": "Daten",
+        "uk": "Дані",
+        "en": "Data"
+      },
+      "id": "https://w3id.org/kim/hcrt/data",
+      "type": "Concept"
+    },
+    {
+      "inScheme": {
+        "id": "https://w3id.org/kim/hcrt/scheme"
+      },
+      "prefLabel": {
+        "de": "Diagramm",
+        "uk": "Діаграма",
+        "en": "Diagram"
+      },
+      "id": "https://w3id.org/kim/hcrt/diagram",
+      "type": "Concept"
+    }
+  ],
+  "id": "https://api.hoerkaen.hbz-nrw.de/resource/orca:3fc1c517-2667-403a-b13c-9c4bb83064a6"
+}

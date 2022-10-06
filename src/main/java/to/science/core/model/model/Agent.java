@@ -13,7 +13,7 @@ import to.science.core.model.implementation.Affiliation;
  * <p>Interface defines basic methods required for the toscience agent model 
  * representing data structure of
  * </p>
- * Model represented in JSON: 
+ * <p>Model represented in JSON: 
  * <pre>"agent" : {
  *         "affiliation": {
  *             "prefLabel": "Name of Organization",

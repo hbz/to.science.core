@@ -30,7 +30,7 @@ import to.science.core.util.GenericPropertiesLoader;
  */
 public class License extends AbstractSimpleObject implements SimpleObject{
   
-  private String licensesList = "Licenses-de.properties";
+  private String licensesList = "resources/license-de.properties";
 
   /**
    * <p>Set a complete license inferred from the Id expressed as complete Id-URI. Licenses prefLabel is resolved by using the License-Id. 
@@ -50,6 +50,14 @@ public class License extends AbstractSimpleObject implements SimpleObject{
     JSONObject ambJSONObject = new JSONObject();
     ambJSONObject.put("id",  simpleObject.get("@id"));
     return ambJSONObject;
+  }
+  
+  @Override
+  public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject) {
+    JSONObject tosJSONObject = new JSONObject();
+    tosJSONObject.put("@id", ambJSONObject.get("id"));
+    tosJSONObject.put("prefLabel",  new GenericPropertiesLoader().loadVocabMap(licensesList).get(ambJSONObject.get("id")));
+    return tosJSONObject; 
   }
 
 

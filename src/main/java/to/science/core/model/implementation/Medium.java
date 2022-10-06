@@ -30,7 +30,7 @@ import to.science.core.util.GenericPropertiesLoader;
  */
 public class Medium extends AbstractSimpleObject implements SimpleObject{
   
-  private String mediaList = "OrcaMedientypen-de.properties";
+  private String mediaList = "resources/medium-de.properties";
 
   /**
    * <p>Set a complete medium inferred from the Id expressed as complete Id-URI. Mediums prefLabel is resolved by using the KIM/DINI-Id. 
@@ -57,5 +57,14 @@ public class Medium extends AbstractSimpleObject implements SimpleObject{
     ambJSONObject.put("type", "Concept");
     return ambJSONObject;
   }
+  
+  @Override
+  public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject) {
+    JSONObject tosJSONObject = new JSONObject();
+    tosJSONObject.put("@id", ambJSONObject.get("id"));
+    tosJSONObject.put("prefLabel", ambJSONObject.getJSONObject("prefLabel").get("de"));
+    return tosJSONObject; 
+  }
+
 }
 

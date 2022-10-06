@@ -20,30 +20,28 @@ import to.science.core.model.model.AbstractSimpleArray;
  */
 public interface AmbMapper {
 
-  /**
-   * <p>
-   * Map toscience model into amb model
-   * </p>
-   * 
-   * @return mapped object as JSONObject 
-   */
-  public JSONObject getAMBJSONObject();
   
   /**
    * <p>
-   * Map amb JSONObject into according toscience object
+   * Get a AMBmodel object mapped from any ToScience model object
    * </p>
-   * @param ambJSONObject
-   * @return
+   * <p>
+   * For Schema Details see: <a href="https://dini-ag-kim.github.io/amb/draft/" target="_blank">AMB Schema</a>
+   * </p>
+   * <p>
+   * @return JSONObject with object data mapped to AMBmodel (formely known as LRMI)
+   * </p>
    */
-  public AbstractAgent getAgentMappedFromAmbJSONObject(JSONObject ambJSONObject);
-  
+  public JSONObject getAmbJSONObject();
+
   /**
-   * @param ambJSONObject
-   * @return
+   * <P>
+   * Get a specific ToScience model object by mapping an AMBmodel object into ToScience model object
+   * </p>
+   * <p>
+   * @return JSONObject with object data mapped from AMB (formely known as LRMI)
+   * </p>
    */
-  public AbstractSimpleArray getSimpleArrayFromAmbJSONObject(JSONObject ambJSONObject);
-  
-  
+  public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject);
   
 }

@@ -31,7 +31,7 @@ import to.science.core.util.GenericPropertiesLoader;
  */
 public class Funder extends AbstractSimpleObject implements SimpleObject{
   
-  private String funderList = "Funder.properties";
+  private String funderList = "resources/funder-de.properties";
 
   /**
    * <p>Set a complete funder inferred from the Id expressed as complete Id-URI. Funders prefLabel is resolved by using the Funder-Id. 
@@ -59,5 +59,14 @@ public class Funder extends AbstractSimpleObject implements SimpleObject{
     ambJSONObject.put("type", "FundingScheme");
     return ambJSONObject;
   }
+  
+  @Override
+  public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject) {
+    JSONObject tosJSONObject = new JSONObject();
+    tosJSONObject.put("@id", ambJSONObject.get("url"));
+    tosJSONObject.put("prefLabel", ambJSONObject.get("name"));
+    return tosJSONObject; 
+  }
+
 }
 

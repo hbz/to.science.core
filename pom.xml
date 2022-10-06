@@ -2,9 +2,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.nrw.hbz</groupId>
 	<artifactId>to.science.core</artifactId>
-	<version>0.8.0</version>
+	<version>1.0.0</version>
 	<name>Toolbox Open Science Core</name>
 	<description>Core Classes for the Toolbox Open Science</description>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>8</maven.compiler.source>
@@ -23,9 +33,9 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git:git://github.com/simpligility/ossrh-demo.git</connection>
-		<developerConnection>scm:git:ssh://github.com:simpligility/ossrh-demo.git</developerConnection>
-		<url>http://github.com/simpligility/ossrh-demo/tree/master</url>
+		<connection>scm:git:git://github.com/hbz/to.science.core.git</connection>
+		<developerConnection>scm:git:https://github.com/hbz/to.science.core.git</developerConnection>
+		<url>https://github.com/hbz/to.science.core.git/tree/main</url>
 	</scm>
 	<licenses>
 		<license>
@@ -33,6 +43,47 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>3.2.1</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<configuration>
+									<keyname>CEBB52A1937A3B02</keyname>
+									<passphraseServerId>CEBB52A1937A3B02</passphraseServerId>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -64,34 +115,6 @@
 						</execution>
 					</executions>
 				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>3.2.1</version>
-					<executions>
-						<execution>
-							<id>attach-sources</id>
-							<phase>verify</phase>
-							<goals>
-								<goal>jar-no-fork</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-gpg-plugin</artifactId>
-      <version>1.5</version>
-      <executions>
-        <execution>
-          <id>sign-artifacts</id>
-          <phase>verify</phase>
-          <goals>
-            <goal>sign</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -136,6 +159,17 @@
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20220320</version>
+		</dependency>
+		<dependency>
+			<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>3.0.8</version>
 		</dependency>
 	</dependencies>
 </project>

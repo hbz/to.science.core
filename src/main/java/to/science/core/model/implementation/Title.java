@@ -8,7 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import to.science.core.model.model.AbstractSimpleArray;
+import to.science.core.model.model.AbstractToScienceModel;
 import to.science.core.model.model.SimpleArray;
+import to.science.core.model.model.ToScienceModel;
 
 /**
  * <p>
@@ -25,7 +27,7 @@ import to.science.core.model.model.SimpleArray;
  * @author aquast
  *
  */
-public class Title extends AbstractSimpleArray implements SimpleArray {
+public class Title extends AbstractSimpleArray implements SimpleArray, ToScienceModel {
 
   final static Logger logger = LoggerFactory.getLogger(Title.class);
   public ArrayList<String> list = new ArrayList<String>();
@@ -54,11 +56,36 @@ public class Title extends AbstractSimpleArray implements SimpleArray {
 
   @Override
   public JSONArray getJSONArray() {
-    JSONArray descriptArr = new JSONArray();
+    JSONArray titleArr = new JSONArray();
     for (int i=0; i < list.size(); i++) {
-      descriptArr.put(list.get(i));
+      titleArr.put(list.get(i));
     }
-    return descriptArr;
+    return titleArr;
+  }
+
+  @Override
+  public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject) {
+    JSONObject titleJSONObject = new JSONObject();
+    JSONArray titleJSONArray = new JSONArray();
+    if (ambJSONObject.has("name")) {
+      String value = ambJSONObject.getString("name");
+      titleJSONArray.put(value);
+      titleJSONObject.put("title",  titleJSONArray);
+    }
+    return titleJSONObject;
+  }
+
+  @Override
+  public JSONObject getJSONObject() {
+    JSONObject titleJSONObject = new JSONObject();
+    titleJSONObject.put("title", getJSONArray());
+    return titleJSONObject;
+  }
+
+  @Override
+  public ToScienceModel setById(String id) {
+    logger.warn("Method not applicable for TOS Model Description");
+    return null;
   }
  
   

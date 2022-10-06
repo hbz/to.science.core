@@ -17,9 +17,7 @@ import java.util.Map;
  * be converted in en
  * </p>
  * <p>
- * @param iso639_2Uri an ISO639-2 URI as String
- * @return a two-letter tag representing the ISO639 language
- * 
+ *
  * @author aquast
  * </p>
  */

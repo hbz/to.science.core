@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import to.science.core.model.implementation.Affiliation;
+import to.science.core.modelx.amb.AmbMapper;
 import to.science.core.util.GenericPropertiesLoader;
 
 /**
@@ -123,10 +124,11 @@ public abstract class AbstractAgent extends AbstractSimpleObject implements Agen
   public String getJson() {
     JSONObject jsonObj = this.getJSONObject();
     String json = jsonObj.toString(1);
-    logger.info(json);
+    logger.debug(json);
     return json;
   }
 
+  @Override
   public JSONObject getAmbJSONObject() {
     JSONObject ambJsonObj = new JSONObject();
     JSONObject jsonObj = this.getJSONObject();
@@ -136,6 +138,7 @@ public abstract class AbstractAgent extends AbstractSimpleObject implements Agen
       String key = iterator.next();
       String ambKey = key;
       ambKey = key.replace("prefLabel", "name");
+      ambKey = ambKey.replace("@id", "id");
       ambKey = ambKey.replace("academicDegree", "honorificDegree");
       ambJsonObj.put(ambKey, jsonObj.get(key));
       
@@ -147,6 +150,7 @@ public abstract class AbstractAgent extends AbstractSimpleObject implements Agen
     return ambJsonObj;
   }
   
+  @Override
   public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject) {
     JSONObject jsonObj = this.getJSONObject();
     Iterator<String> iterator = ambJSONObject.keys();
@@ -155,7 +159,9 @@ public abstract class AbstractAgent extends AbstractSimpleObject implements Agen
       String ambKey = iterator.next();
       String key = ambKey;
       key = ambKey.replace("name", "prefLabel");
-      key = key.replace("honorificDegree", "academicDegree");
+      key = key.replace("honorificPrefix", "academicDegree");
+      key = key.replace("honoricPrefix", "academicDegree");
+      key = key.replace("id", "@id");
       jsonObj.put(key, ambJSONObject.get(ambKey));
       
     }
@@ -175,8 +181,13 @@ public abstract class AbstractAgent extends AbstractSimpleObject implements Agen
 
   @Override
   public AbstractAgent setById(String id) {
+    if (id.startsWith("https://orcid")) {
+      
+    }
     // TODO Implement method
     return this;
   }
+  
+  
 
 }

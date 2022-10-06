@@ -31,7 +31,7 @@ import to.science.core.util.GenericPropertiesLoader;
  */
 public class Department extends AbstractSimpleObject implements SimpleObject{
   
-  private String departmentList = "Department-de.properties";
+  private String departmentList = "resources/department-de.properties";
 
   
   @Override
@@ -51,6 +51,14 @@ public class Department extends AbstractSimpleObject implements SimpleObject{
     simpleObject.put("@id", id);
     simpleObject.put("prefLabel", new GenericPropertiesLoader().loadVocabMap(departmentList).get(id));
     return this;
+  }
+
+  @Override
+  public JSONObject getFromAmbJSONObject(JSONObject ambJSONObject) {
+    JSONObject tosJSONObject = new JSONObject();
+    tosJSONObject.put("@id", ambJSONObject.get("id"));
+    tosJSONObject.put("prefLabel", ambJSONObject.getJSONObject("prefLabel").get("de"));
+    return tosJSONObject; 
   }
 }
 
