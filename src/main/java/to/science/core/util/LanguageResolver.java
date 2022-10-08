@@ -23,7 +23,6 @@ import java.util.Map;
  */
 public class LanguageResolver {
 
-  private static Locale locale = null;
   private Locale impLocale = null;
   
   public Locale getLocale() {

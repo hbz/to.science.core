@@ -70,7 +70,7 @@ private String id = null;
     } catch (Exception e) {
       logger.error(e.getMessage());
     }
-    logger.debug(lookupJSONObj.toString(1));
+    //logger.debug(lookupJSONObj.toString(1));
    return lookupJSONObj;
   }
   

@@ -15,8 +15,6 @@ import to.science.core.modelx.amb.AmbMapper;
  */
 public abstract class AbstractToScienceModel implements ToScienceModel, AmbMapper {
 
-  public static Hashtable<String, ToScienceModel> registeredModels = new Hashtable<>();
- 
 
   
  }

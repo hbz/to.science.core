@@ -54,7 +54,7 @@ public class Funder extends AbstractSimpleObject implements SimpleObject{
     JSONObject prefLabelObj = new JSONObject();
     prefLabelObj.put("de",simpleObject.get("prefLabel"));
     ambJSONObject.put("prefLabel", prefLabelObj);
-    System.out.println("Id: " + simpleObject.get("@id"));
+    //System.out.println("Id: " + simpleObject.get("@id"));
     ambJSONObject.put("id", simpleObject.get("@id"));
     ambJSONObject.put("type", "FundingScheme");
     return ambJSONObject;

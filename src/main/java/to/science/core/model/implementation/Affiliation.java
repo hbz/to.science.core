@@ -31,14 +31,14 @@ import to.science.net.util.GenericLookupProvider;
  * 
  */
 public class Affiliation extends AbstractSimpleObject implements SimpleObject{
-  
+
+  private String affiliationList = "resources/affiliation-de.properties";
+
   public Affiliation() {
     simpleObject.put("type", "Organization");
     //AbstractToScienceModel.registerModel("Affiliation", new Affiliation());
 
   }
-  // private ArrayList<HashMap<String,Object>> affiliation = new ArrayList<>();
-  private String affiliationList = "resources/affiliation-de.properties";
 
   /**
    * <p>Set a complete affiliation inferred from the Id expressed as complete Id-URI. Affiliations prefLabel is resolved by using the ROR-Id. 

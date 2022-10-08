@@ -11,6 +11,8 @@ import java.util.Hashtable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import to.science.core.model.implementation.Affiliation;
 import to.science.core.model.implementation.AmbMapperImpl;
@@ -27,12 +29,15 @@ import to.science.core.model.implementation.Title;
 import to.science.core.model.implementation.YearOfCopyright;
 import to.science.core.model.model.AbstractToScienceModel;
 import to.science.core.model.model.ToScienceModel;
+import to.science.core.modelx.amb.AbstractAmbMapper;
 
 /**
  * @author aquast
  *
  */
 public class TestAmbMapper {
+
+  final static Logger logger = LoggerFactory.getLogger(TestAmbMapper.class);
 
   /**
    * @param args
@@ -42,100 +47,32 @@ public class TestAmbMapper {
     // get new instance of this class
     TestAmbMapper amb = new TestAmbMapper();
 
-    // create an Hashtable with all parts of to.science.model represented as JSONObject 
-    Hashtable<String, AbstractToScienceModel> tosClasses = new Hashtable<>();
-    tosClasses.put("affiliation", new Affiliation());
-    tosClasses.put("creator", new Creator());
-    tosClasses.put("contributor", new Contributor());
-    tosClasses.put("department", new Department());
-    tosClasses.put("language", new Language());
-    tosClasses.put("license", new License());
-    tosClasses.put("medium", new Medium());
-    tosClasses.put("subject", new Subject());
-    tosClasses.put("description", new Description());
-    tosClasses.put("title", new Title());
-    tosClasses.put("yearOfCopyright", new YearOfCopyright());
-    tosClasses.put("funder", new Funder());
-    tosClasses.put("license", new License());
-
-    Hashtable<String, String> simpleArrayMap = new Hashtable<>();
-    simpleArrayMap.put("department", "learningResourceType");
-    simpleArrayMap.put("medium", "about");
-    simpleArrayMap.put("creator", "creator");
-    simpleArrayMap.put("contributor", "contributor");
-    simpleArrayMap.put("description", "description");
-    simpleArrayMap.put("title", "name");
-    simpleArrayMap.put("yearOfCopyright", "datePublished");
-    simpleArrayMap.put("funder", "funder");
-    simpleArrayMap.put("license", "license");
-    simpleArrayMap.put("subject", "keywords");
-
     AmbMapperImpl ambMapper = new AmbMapperImpl();
-    JSONObject ambJSONObj = ambMapper.getAmbJSONObject(); // the mapping amb source
-    JSONObject tosJSONObj = new JSONObject(); // the mapping toscience target
- 
-  
-    
-    Enumeration<String> simpleArrayEnum = simpleArrayMap.keys();
-
-    try {
-    while (simpleArrayEnum.hasMoreElements()) {
-      String key = simpleArrayEnum.nextElement();
-      if (ambJSONObj.has(simpleArrayMap.get(key))) {
-        JSONArray ambArr = ambJSONObj.optJSONArray(simpleArrayMap.get(key));
-        if(ambArr != null && !simpleArrayMap.get(key).equals("keywords")) {
-          JSONArray arr = new JSONArray();
-          for(int i=0; i < ambArr.length(); i++) {
-            JSONObject obj = tosClasses.get(key).getFromAmbJSONObject(ambArr.optJSONObject(i));
-            // System.out.println(obj.toString(1));
-            arr.put(obj);
-          }
-          tosJSONObj.put(key, arr);          
-        }
-       
-        else if(simpleArrayMap.get(key).equals("keywords")) {
-          System.out.println(simpleArrayMap.get(key));
-          JSONObject obj = tosClasses.get(key).getFromAmbJSONObject(ambJSONObj);
-          JSONArray arr = obj.getJSONArray(key);
-          tosJSONObj.put(key,  arr);
-          //System.out.println(obj.toString(1));
-        }
-        
-        else if(ambJSONObj.optJSONObject(simpleArrayMap.get(key)) != null) {
-          JSONObject obj = tosClasses.get(key).getFromAmbJSONObject(ambJSONObj.getJSONObject(simpleArrayMap.get(key)));
-          tosJSONObj.put(key, obj);
-          //System.out.println(obj.toString(1));
-        }
-        
-        else if (ambJSONObj.optString(simpleArrayMap.get(key)) != null){
-          JSONObject obj = tosClasses.get(key).getFromAmbJSONObject(ambJSONObj);
-          JSONArray arr = obj.getJSONArray(key);
-          tosJSONObj.put(key, arr);          
-        }
- 
-        // System.out.println(key);
-          //JSONObject obj = tosClasses.get(key).getFromAmbJSONObject(ambJSONObj);
-          //tosJSONObj.putOpt(key, obj);
-          // tosJSONObj.put(key, new String[] {ambJSONObj.optString(simpleArrayMap.get(key))});
-     
-        
-        // arr.put(new );
-      }
-      }
-    } catch (Exception e) {
-      System.out.println("ERROR: " + e.toString());
-    }
-
-
-    if (ambJSONObj.has("id")) {
-      tosJSONObj.put("@id", ambJSONObj.get("id"));
-      // TODO implement the other mappings that require resource id
-    }
-
-    tosJSONObj.put("contentType", "researchData");
-
+    JSONObject tosJSONObj = ambMapper.getTosJSONObject(amb.loadExampleAmbSource());
     System.out.println(tosJSONObj.toString(1));
 
+  }
+
+  public JSONObject loadExampleAmbSource() {
+    
+    JSONObject ambJSONObj = new JSONObject();
+
+    try {
+    InputStream ambJsonStream = this.getClass().getClassLoader().getResourceAsStream("exampleAmb.json");
+    InputStreamReader ambStreamReader = new InputStreamReader(ambJsonStream, "UTF-8");
+    BufferedReader bReader = new BufferedReader(ambStreamReader);
+    StringBuilder jsonStringBuilder = new StringBuilder();
+    
+    String inputStr;
+    while ((inputStr = bReader.readLine()) != null)
+      jsonStringBuilder.append(inputStr);
+      ambJSONObj = new JSONObject(jsonStringBuilder.toString());
+    }catch (Exception e) {
+      logger.error(e.getMessage());
+    }
+
+    
+    return ambJSONObj;
   }
 
 }
