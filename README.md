@@ -21,8 +21,8 @@ The to.science data model is thought to be <em>open</em> for enhancements accord
 
 ## Prerequisites ##
 
-- OpenJDK 1.8 or above
-- Maven 3.x or so for integration and deployment
+-  OpenJDK 1.8 or above
+-  Maven 3.x or so for integration and deployment
 
 ## Installation ##
 
@@ -33,7 +33,7 @@ No installation required. Can be used as library within other Software Modules.
 Integrate to.science.core as dependency in your framework via Maven Central. 
 Use with Maven via pom.xml:
 
-```
+```xml
 <dependency>
     <groupId>io.github.hbz</groupId>
     <artifactId>to.science.core</artifactId>
