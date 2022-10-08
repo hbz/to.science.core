@@ -1,5 +1,7 @@
 package to.science.core.model;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.json.JSONObject;
 import org.junit.Test;
 
@@ -24,7 +26,8 @@ public class TestAgentModel {
     contributor.setId("https://orcid.org/0000-0002-7662-8211");
     contributor.setAcademicDegree("https://d-nb.info/standards/elementset/gnd#academicDegree/Prof.");
     contributor.setPrefLabel("Andres Quast");
-    contributor.getJson();
+    assertNotNull("contributor not null: ", contributor.getJson());
+    
   }
 
   @Test
@@ -34,7 +37,7 @@ public class TestAgentModel {
     contributor.setId("https://orcid.org/0000-0002-7662-8211");
     contributor.setAcademicDegree("https://d-nb.info/standards/elementset/gnd#academicDegree/Prof.");
     contributor.setPrefLabel("Andres Quast");
-    contributor.getJson();
+    assertNotNull("contributor not null: ", contributor.getJson());
   }
 
   @Test
@@ -46,6 +49,7 @@ public class TestAgentModel {
     creator.setPrefLabel("Andres Quast");
     JSONObject amb = creator.getAmbJSONObject();
     JSONObject toScience = creator.getFromAmbJSONObject(amb);
+    assertNotNull("toscience not null: ", toScience);
   }
   
 }

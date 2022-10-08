@@ -7,7 +7,6 @@ import org.json.JSONObject;
 
 import to.science.core.model.model.AbstractSimpleObject;
 import to.science.core.model.model.SimpleObject;
-import to.science.core.model.model.ToScienceModel;
 import to.science.core.util.GenericPropertiesLoader;
 
 /**

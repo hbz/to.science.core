@@ -3,6 +3,11 @@
  */
 package to.science.core.util;
 
+import static org.junit.Assert.assertNotNull;
+
+import java.util.Map;
+import java.util.Properties;
+
 import org.junit.Test;
 
 /**
@@ -15,8 +20,11 @@ public class TestGenericFileLoader {
   
   @Test
   public void testGenericPropertiesLoader() {
-    GenPropLoad.loadProperties("Test.properties");
-    GenPropLoad.loadVocabMap("Test.properties");
+    Properties prop = GenPropLoad.loadProperties("Test.properties");
+    assertNotNull(prop);
+    Map<String, String> map  = GenPropLoad.loadVocabMap("Test.properties");
+    assertNotNull(map);
+    
   }
 
 }

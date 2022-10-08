@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import to.science.core.model.model.AbstractSimpleArray;
-import to.science.core.model.model.AbstractToScienceModel;
 import to.science.core.model.model.SimpleArray;
 import to.science.core.model.model.ToScienceModel;
 

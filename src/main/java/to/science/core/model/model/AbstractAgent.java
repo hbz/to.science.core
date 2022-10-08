@@ -6,13 +6,11 @@ package to.science.core.model.model;
 import java.util.LinkedHashMap;
 import java.util.Iterator;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import to.science.core.model.implementation.Affiliation;
-import to.science.core.modelx.amb.AmbMapper;
 import to.science.core.util.GenericPropertiesLoader;
 
 /**

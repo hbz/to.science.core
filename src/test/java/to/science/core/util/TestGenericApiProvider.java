@@ -3,13 +3,15 @@
  */
 package to.science.core.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import to.science.core.model.model.AbstractSimpleArray;
 import to.science.net.util.GenericLookupProvider;
 
 /**
@@ -24,12 +26,16 @@ public class TestGenericApiProvider {
   public void checkForResponse() {
 
     GenericLookupProvider gen = new GenericLookupProvider("https://api.ror.org/organizations/", "03jqp6d56");
+    
+    String result = null;
+    String wanted = "Fachhochschule Oberösterreich";
+    JSONObject jsonObj = null;
     JSONObject lookupObj = gen.getResponseAsJSONObject();
-    //System.out.println(lookupObj.toString(1));
     if(lookupObj.has("labels")) {
       JSONArray arr = lookupObj.getJSONArray("labels");
-      JSONObject jsonObj = arr.getJSONObject(0);
-      logger.debug(jsonObj.get("label").toString());
+      jsonObj = arr.getJSONObject(0);
+      result = jsonObj.get("label").toString();
     }
+    assertEquals("Failure - Expected Name " + wanted + "not matched", result, wanted);
   }
 }

@@ -9,7 +9,6 @@ import org.json.JSONObject;
 import to.science.core.model.model.AbstractSimpleObject;
 import to.science.core.model.model.SimpleObject;
 import to.science.core.util.AdHocUriProvider;
-import to.science.core.util.GenericPropertiesLoader;
 import to.science.net.util.GenericLookupProvider;
 
 /**

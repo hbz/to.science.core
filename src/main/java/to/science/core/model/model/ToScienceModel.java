@@ -5,8 +5,6 @@ package to.science.core.model.model;
 
 import org.json.JSONObject;
 
-import to.science.core.modelx.amb.AmbMapper;
-
 /**
  * <p>
  * Interface for all parts of the ToScience data model. Provides main methods to

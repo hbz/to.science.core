@@ -5,8 +5,6 @@ package to.science.core.model.model;
 
 import java.util.LinkedHashMap;
 
-import org.json.JSONObject;
-
 import to.science.core.model.implementation.Affiliation;
 
 /**
@@ -63,13 +61,13 @@ public interface Agent extends ToScienceModel{
   public void setAffiliation(Affiliation affiliation);
   
   /**
-   * @param prefLabel the agents name in the format firstname givenname for persons
+   * @param prefLabel the agents name in the format first name given name for persons
    */
   public void setPrefLabel(String prefLabel);
   
   /**
    * @param id the agents Id as complete Id-URL. Id can have different base URL, e.g. https://orcid.org 
-   * or an AdHocUri generated from appropriate toscience class. 
+   * or an AdHocUri generated from appropriate to.science class. 
    */
   public void setId(String id);
   

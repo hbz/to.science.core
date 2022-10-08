@@ -3,8 +3,6 @@
  */
 package to.science.core.model.model;
 
-import java.util.Hashtable;
-
 import to.science.core.modelx.amb.AmbMapper;
 
 
