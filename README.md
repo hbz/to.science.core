@@ -49,4 +49,3 @@ libraryDependencies += "io.github.hbz" % "to.science.core" % "1.1.0"
 Get further details for integration at  https://central.sonatype.dev/artifact/io.github.hbz/to.science.core/1.1.0/overview
 
 For running to.science.core standalone you can use the latest release to.science.core-jar-with-dependencies.jar file
-
