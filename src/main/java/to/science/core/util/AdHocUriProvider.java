@@ -3,8 +3,7 @@
  */
 package to.science.core.util;
 
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 /**
  * <p><em>Recently a not functional class, only a dummy for something we have to implement</em><p>  
@@ -16,9 +15,26 @@ import java.nio.charset.StandardCharsets;
 public class AdHocUriProvider {
 
 	private String label = null;
-	private String baseUri = "https://hbz-nrw.de/adhocuri/";
+	private String baseUri = "https://api.toscience.hbz-nrw.de";
+	private String adhocPath = "adhoc/uri/";
+	private String encodedLabel = null;
 
-
+public AdHocUriProvider() {
+  
+}
+	
+/**
+ * Initialize a new AdHocProvider
+ * @param baseUri
+ */
+public AdHocUriProvider(String baseUri) {
+  this.baseUri = baseUri;
+}
+	
+	/**
+	 * Replace default base uri with a server specific uri
+	 * @param baseUri the uri as String
+	 */
 	public void setBaseUri(String baseUri) {
 	  this.baseUri = baseUri;
 	}
@@ -31,24 +47,45 @@ public class AdHocUriProvider {
 		String adHocUri = null;
 		this.label = Value;
 
-		adHocUri = generateNewAdHocUri();
+		adHocUri = generateAdHocUri();
 
 		return adHocUri;
 	}
 
-	private String generateNewAdHocUri() {
+	private String generateAdHocUri() {
+	  encodedLabel = base64encode(label);
 	  String adHocUri = null;
-		try {
-			adHocUri = baseUri +
-					URLEncoder.encode(label, StandardCharsets.UTF_8.toString())
-							.replaceAll("\\+", "%20").replaceAll("%21", "!")
-							.replaceAll("%27", "'").replaceAll("%28", "(")
-							.replaceAll("%29", ")").replaceAll("%7E", "~");
-	} catch(Exception e) {
-	  
-	}
+		adHocUri = baseUri + "/" + adhocPath + encodedLabel;
 		
     return adHocUri;
 
 	}
+	
+	public String getLabel() {
+	  return base64decode();
+	}
+	
+	/**
+	 * Encode label by base64
+	 * @param label
+	 * @return
+	 */
+	private String base64encode(String label) {
+	   return Base64.getEncoder().encodeToString(label.getBytes())
+	        .replaceAll("/", "-").replaceAll("\\+", "_");
+	  }
+
+  /**
+   * Encode label by base64
+   * @param label
+   * @return
+   */
+  private String base64decode() {
+    String decodedLabel =  Base64.getDecoder().decode(encodedLabel.getBytes()).toString();
+    return decodedLabel.replaceAll("-", "/").replaceAll("_", "\\+");
+    }
+
+
+	
+	
 }

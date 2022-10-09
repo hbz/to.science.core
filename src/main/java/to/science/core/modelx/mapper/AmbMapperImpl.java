@@ -1,4 +1,4 @@
-package to.science.core.model.implementation;
+package to.science.core.modelx.mapper;
 
 import org.json.JSONObject;
 import org.slf4j.Logger;

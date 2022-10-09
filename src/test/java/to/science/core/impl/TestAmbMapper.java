@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import to.science.core.model.implementation.AmbMapperImpl;
+import to.science.core.modelx.mapper.AmbMapperImpl;
 
 /**
  * @author aquast

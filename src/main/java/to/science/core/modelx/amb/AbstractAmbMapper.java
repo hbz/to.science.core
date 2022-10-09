@@ -17,6 +17,7 @@ import to.science.core.model.implementation.Affiliation;
 import to.science.core.model.implementation.Contributor;
 import to.science.core.model.implementation.License;
 import to.science.core.model.implementation.Medium;
+import to.science.core.model.implementation.Part;
 import to.science.core.model.implementation.Subject;
 import to.science.core.model.implementation.Title;
 import to.science.core.model.implementation.YearOfCopyright;
@@ -61,6 +62,7 @@ public abstract class AbstractAmbMapper implements AmbMapper {
     tosClasses.put("yearOfCopyright", new YearOfCopyright());
     tosClasses.put("funder", new Funder());
     tosClasses.put("license", new License());
+    tosClasses.put("hasPart", new Part());
 
   }
 
@@ -83,8 +85,21 @@ public abstract class AbstractAmbMapper implements AmbMapper {
     mappingNames.put("funder", "funder");
     mappingNames.put("license", "license");
     mappingNames.put("subject", "keywords");
+    mappingNames.put("hasPart", "encoding");
+    
   }
 
+  /**
+   * Map metadata completely describing a resource in the AMB metadata schema into a complete 
+   * description provided as to.science schema
+   * 
+   * AMB schema is defined by 
+   * https://dini-ag-kim.github.io/amb/draft/
+   * 
+   * 
+   * @param ambJSONObj AMB metadata for a resource as JSON 
+   * @return to.science modeled metadata for the whole resource, also as JSON
+   */
   public JSONObject getTosJSONObject(JSONObject ambJSONObj) {
 
     JSONObject tosJSONObj = new JSONObject();
@@ -105,6 +120,7 @@ public abstract class AbstractAmbMapper implements AmbMapper {
             tosJSONObj.put(key, arr);
           }
 
+          // TODO find a logic to circumvent this block especially created for keywords   
           else if (mappingNames.get(key).equals("keywords")) {
             JSONObject obj = tosClasses.get(key).getFromAmbJSONObject(ambJSONObj);
             JSONArray arr = obj.getJSONArray(key);
@@ -130,7 +146,10 @@ public abstract class AbstractAmbMapper implements AmbMapper {
     }
     
     if (ambJSONObj.has("id")) {
-      tosJSONObj.put("@id", ambJSONObj.get("id"));
+      String[] uriPart = ambJSONObj.get("id").toString().split("orca:");
+      tosJSONObj.put("@id", "orca:" + uriPart[1]);
+      tosJSONObj.put("isPrimaryTopic",  "orca:" + uriPart[1]);
+      
       // TODO implement the other mappings that require resource id
     }
 

@@ -48,8 +48,7 @@ public class Subject extends AbstractSimpleObject implements SimpleObject {
     String id = lookUpGndId(prefLabel);
     if(id != null) {
       simpleObject.put("@id", id);
-    }
-    if(simpleObject.get("@id") == null) {
+    } else {
       simpleObject.put("@id", new AdHocUriProvider().getAdhocUri(prefLabel));      
     }
   }
@@ -81,7 +80,7 @@ public class Subject extends AbstractSimpleObject implements SimpleObject {
     String gndSubjectId = null;
 
     GenericLookupProvider genApiProv = new GenericLookupProvider(
-        "https://lobid.org/gnd/search?filter=type:SubjectHeadingSensoStricto&format=json&q=preferredName:", prefLabel);
+        "https://lobid.org/gnd/search?filter=type:SubjectHeadingSensoStricto&format=json&q=preferredName:" + prefLabel, "");
     JSONObject lookupObject = genApiProv.getResponseAsJSONObject();
     if (lookupObject != null && lookupObject.has("member")) {
       JSONArray arr = lookupObject.getJSONArray("member");

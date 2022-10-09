@@ -22,10 +22,12 @@ import jakarta.ws.rs.core.Response;
  *
  */
 public class GenericLookupProvider {
-  
-public GenericLookupProvider(){
-  
-}  
+
+  final static Logger logger = LoggerFactory.getLogger(GenericLookupProvider.class);
+
+  private String lookupUri = null;
+  private String id = null;
+   
 
 /**
  * Constructor for applying uri of LookupService and the id 
@@ -37,14 +39,9 @@ public GenericLookupProvider(String lookupUri, String id) {
   setId(id);
 }
 
-final static Logger logger = LoggerFactory.getLogger(GenericLookupProvider.class);
-
-private String lookupUri = null;
-private String id = null;
- 
-
   /**
-   * @return an entire JSONOBject as response of a lookup-API request. It's up to the using classes to fetch the desired information from this object. 
+   * @return an entire JSONOBject as response of a lookup-API request. 
+   * It's up to the using classes to fetch the desired information from this object. 
    */
   public JSONObject getResponseAsJSONObject() {
 
@@ -52,10 +49,9 @@ private String id = null;
     
     try {
       WebTarget target = ClientBuilder.newClient().target( this.lookupUri );
-      WebTarget resourceTarget = target.path( this.id );
+      WebTarget resourceTarget = target.path( this.id );        
       Invocation.Builder request = resourceTarget.request(MediaType.APPLICATION_JSON);
       Response response = request.get();
-
       StringReader inputReader = new StringReader(response.readEntity( String.class ));
       
       StringBuilder jsonStringBuilder = new StringBuilder();
@@ -64,11 +60,12 @@ private String id = null;
       String inputStr = null;
       while ((inputStr = bReader.readLine()) != null) {
         jsonStringBuilder.append(inputStr);
-        lookupJSONObj = new JSONObject(jsonStringBuilder.toString());        
       }
+      lookupJSONObj = new JSONObject(jsonStringBuilder.toString());        
       
     } catch (Exception e) {
-      logger.error(e.getMessage());
+      logger.warn("Found no JSON-applicable result");
+      //e.printStackTrace();
     }
     //logger.debug(lookupJSONObj.toString(1));
    return lookupJSONObj;
