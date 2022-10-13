@@ -11,8 +11,7 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.Properties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 /**
  * @author aquast Class is to facilitate and standardize loading Vocabularies
@@ -20,7 +19,7 @@ import org.slf4j.LoggerFactory;
  */
 public class GenericPropertiesLoader {
 
-  final static Logger logger = LoggerFactory.getLogger(GenericPropertiesLoader.class);
+  final static Logger logger = Logger.getLogger(GenericPropertiesLoader.class);
   
   
 	public Map<String, String> loadVocabMap(String PropertiesFileName) {

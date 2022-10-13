@@ -1,0 +1,252 @@
+{
+  "@id": "orca:20a7ecbb-6727-423d-9c1f-9f465422929c",
+  "accessScheme": "private",
+  "catalogId": "ED20a7ecbb-6727-423d-9c1f-9f465422929c",
+  "contentType": "researchData",
+  "contributor": [
+    {
+      "@id": "https://orcid.org/0000-0002-3187-2536",
+      "prefLabel": "Peter Reimer",
+      "academicDegree": "https://d-nb.info/standards/elementset/gnd#academicDegree/Dr.",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/03hj8rz96",
+          "prefLabel": "Hochschule für Gesundheit",
+          "rdftype": [
+            {
+              "@id": "http://schema.org/Organization",
+              "prefLabel": "http://schema.org/Organization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/RmVsaWNpdGFzIEZhaHJlbmhlaXQ=",
+      "prefLabel": "Felicitas Fahrenheit",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/00613ak93",
+          "prefLabel": "Bergische Universität Wuppertal",
+          "rdftype": [
+            {
+              "@id": "http://schema.org/Organization",
+              "prefLabel": "http://schema.org/Organization"
+            }
+          ]
+        }
+      ],
+      "academicDegree": "https://d-nb.info/standards/elementset/gnd#academicDegree/Prof."
+    },
+    {
+      "@id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/Q2hpYXJhIENlbGNpdXM=",
+      "prefLabel": "Chiara Celcius",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/01k97gp34",
+          "prefLabel": "Technische Universität Dortmund",
+          "rdftype": [
+            {
+              "@id": "http://schema.org/Organization",
+              "prefLabel": "http://schema.org/Organization"
+            }
+          ]
+        }
+      ],
+      "academicDegree": "https://d-nb.info/standards/elementset/gnd#academicDegree/Prof."
+    },
+    {
+      "@id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/TWljaGFlbCBNaWxsaW1ldGVy",
+      "prefLabel": "Michael Millimeter",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/02hpadn98",
+          "prefLabel": "Universität Bielefeld",
+          "rdftype": [
+            {
+              "@id": "http://schema.org/Organization",
+              "prefLabel": "http://schema.org/Organization"
+            }
+          ]
+        }
+      ],
+      "academicDegree": "unknown"
+    }
+  ],
+  "contributorAcademicDegree": [
+    "http://hbz-nrw.de/regal#contributorAcademicDegree/Prof.",
+    "http://hbz-nrw.de/regal#contributorAcademicDegree/Dr."
+  ],
+  "contributorAffiliation": [
+    "http://hbz-nrw.de/regal#contributorAffiliation/00613ak93",
+    "http://hbz-nrw.de/regal#contributorAffiliation/01k97gp34",
+    "http://hbz-nrw.de/regal#contributorAffiliation/02hpadn98",
+    "http://hbz-nrw.de/regal#contributorAffiliation/03hj8rz96"
+  ],
+  "creator": [
+    {
+      "@id": "https://orcid.org/0000-0002-7662-8211",
+      "prefLabel": "Andres Quast",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/03dv91853",
+          "prefLabel": "Fachhochschule Dortmund",
+          "rdftype": [
+            {
+              "@id": "http://schema.org/Organization",
+              "prefLabel": "http://schema.org/Organization"
+            }
+          ]
+        }
+      ],
+      "academicDegree": "https://d-nb.info/standards/elementset/gnd#academicDegree/Dr."
+    },
+    {
+      "@id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/RmlvbmEgRmllc2Vsc2Nod2VpZg==",
+      "prefLabel": "Fiona Fieselschweif",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/041nas322",
+          "prefLabel": "Rheinische Friedrich-Wilhelms-Universität Bonn",
+          "rdftype": [
+            {
+              "@id": "http://schema.org/Organization",
+              "prefLabel": "http://schema.org/Organization"
+            }
+          ]
+        }
+      ],
+      "academicDegree": "https://d-nb.info/standards/elementset/gnd#academicDegree/Prof."
+    },
+    {
+      "@id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/S2V2aW4gS2Vsdmlu",
+      "prefLabel": "Kevin Kelvin",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/04tsk2644",
+          "prefLabel": "Ruhr-Universität Bochum",
+          "rdftype": [
+            {
+              "@id": "http://schema.org/Organization",
+              "prefLabel": "http://schema.org/Organization"
+            }
+          ]
+        }
+      ],
+      "academicDegree": "unknown"
+    }
+  ],
+  "creatorAcademicDegree": [
+    "http://hbz-nrw.de/regal#creatorAcademicDegree/Prof.",
+    "http://hbz-nrw.de/regal#creatorAcademicDegree/Dr."
+  ],
+  "creatorAffiliation": [
+    "http://hbz-nrw.de/regal#creatorAffiliation/04tsk2644",
+    "http://hbz-nrw.de/regal#creatorAffiliation/03dv91853",
+    "http://hbz-nrw.de/regal#creatorAffiliation/041nas322"
+  ],
+  "department": [
+    {
+      "@id": "https://w3id.org/kim/hochschulfaechersystematik/n079",
+      "prefLabel": "Informatik"
+    },
+    {
+      "@id": "https://w3id.org/kim/hochschulfaechersystematik/n121",
+      "prefLabel": "Medieninformatik"
+    },
+    {
+      "@id": "https://w3id.org/kim/hochschulfaechersystematik/n200",
+      "prefLabel": "Computer- und Kommunikationstechniken"
+    }
+  ],
+  "description": [
+    "Diese Ressource ist eine Beispielsressource, die als Testmaterial Bestandteil der to.science.core-Bibliothek wird. Die to.science.core-Bibliothek separiert das to.science-Datenmodell künftig von den API von to.science. Ziel ist eine vereinfachte Entwicklung und Wartung der to.science-Infrastruktur. "
+  ],
+  "funder": [
+    {
+      "@id": "https://www.dh.nrw/kooperationen/sonstiges",
+      "prefLabel": "Sonstiges",
+      "rdftype": [
+        {
+          "@id": "http://schema.org/FundingScheme",
+          "prefLabel": "http://schema.org/FundingScheme"
+        }
+      ]
+    }
+  ],
+  "isDescribedBy": {
+    "@id": "orca:20a7ecbb-6727-423d-9c1f-9f465422929c.rdf",
+    "createdBy": "2",
+    "submittedBy": "Andres Quast",
+    "submittedByEmail": "quast@hbz-nrw.de",
+    "modified": "2022-10-13T08:59:32.031+0000",
+    "objectTimestamp": "2022-10-13T08:59:32.031+0000",
+    "created": "2022-10-13T10:59:21.956+0200",
+    "describes": "orca:20a7ecbb-6727-423d-9c1f-9f465422929c"
+  },
+  "isMemberOf": [
+    {
+      "@id": "info:fedora/oai:researchData",
+      "prefLabel": "info:fedora/oai:researchData"
+    }
+  ],
+  "itemID": [
+    {
+      "@id": "oai:api.hoerkaen.hbz-nrw.de:orca:20a7ecbb-6727-423d-9c1f-9f465422929c",
+      "prefLabel": "oai:api.hoerkaen.hbz-nrw.de:orca:20a7ecbb-6727-423d-9c1f-9f465422929c"
+    }
+  ],
+  "language": [
+    {
+      "@id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+      "prefLabel": "Deutsch"
+    }
+  ],
+  "license": [
+    {
+      "@id": "https://creativecommons.org/licenses/by/4.0/",
+      "prefLabel": "CC BY 4.0"
+    }
+  ],
+  "medium": [
+    {
+      "@id": "https://w3id.org/kim/hcrt/worksheet",
+      "prefLabel": "Arbeitsmaterial"
+    }
+  ],
+  "oerAgent": [
+    "creator 3:  Ruhr-Universität Bochum",
+    "creator 1: Dr. Andres Quast Fachhochschule Dortmund",
+    "contributor 1: Dr. Peter Reimer Hochschule für Gesundheit",
+    "contributor 2: Prof. Chiara Celcius Technische Universität Dortmund",
+    "contributor 4: Prof. Felicitas Fahrenheit Bergische Universität Wuppertal",
+    "creator 2: Prof. Fiona Fieselschweif Rheinische Friedrich-Wilhelms-Universität Bonn",
+    "contributor 3:  Universität Bielefeld"
+  ],
+  "primaryTopic": "orca:20a7ecbb-6727-423d-9c1f-9f465422929c",
+  "publishScheme": "private",
+  "subject": [
+    {
+      "@id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/U29mdHdhcmVkb2t1bWVudGF0aW9u",
+      "prefLabel": "Softwaredokumentation"
+    },
+    {
+      "@id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/U29mdHdhcmVhcmNoaXRla3R1cg==",
+      "prefLabel": "Softwarearchitektur"
+    },
+    {
+      "@id": "https://api.hoerkaen.hbz-nrw.de/adhoc/uri/UHLDvGZ1bmdzbWF0ZXJpYWxpZW4=",
+      "prefLabel": "Prüfungsmaterialien"
+    }
+  ],
+  "title": [
+    "Dies ist ein Beispiel-Titel für die to.science.core Bibliothek"
+  ],
+  "@context": "https://api.hoerkaen.hbz-nrw.de/context.json",
+  "hasPart": [
+    {
+      "prefLabel": "No title",
+      "@id": "orca:ab44066a-59c1-49fb-bae2-f5e7843ddf40"
+    }
+  ]
+}

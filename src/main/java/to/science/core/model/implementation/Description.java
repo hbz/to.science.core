@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import to.science.core.model.model.AbstractSimpleArray;
 import to.science.core.model.model.SimpleArray;
@@ -28,7 +27,7 @@ import to.science.core.model.model.ToScienceModel;
  */
 public class Description extends AbstractSimpleArray implements SimpleArray, ToScienceModel {
 
-  final static Logger logger = LoggerFactory.getLogger(Description.class);
+  final static Logger logger = Logger.getLogger(Description.class);
   public ArrayList<String> list = new ArrayList<String>();
   
   @Override

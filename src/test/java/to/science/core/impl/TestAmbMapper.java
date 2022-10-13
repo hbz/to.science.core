@@ -6,10 +6,9 @@ package to.science.core.impl;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import org.apache.log4j.Logger;
 
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import to.science.core.modelx.mapper.AmbMapperImpl;
 
@@ -19,7 +18,7 @@ import to.science.core.modelx.mapper.AmbMapperImpl;
  */
 public class TestAmbMapper {
 
-  final static Logger logger = LoggerFactory.getLogger(TestAmbMapper.class);
+  final static Logger logger = Logger.getLogger(TestAmbMapper.class);
 
   /**
    * @param args

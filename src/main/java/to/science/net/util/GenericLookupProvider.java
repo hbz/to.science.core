@@ -7,8 +7,7 @@ import java.io.BufferedReader;
 import java.io.StringReader;
 
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Invocation;
@@ -23,7 +22,7 @@ import jakarta.ws.rs.core.Response;
  */
 public class GenericLookupProvider {
 
-  final static Logger logger = LoggerFactory.getLogger(GenericLookupProvider.class);
+  final static Logger logger = Logger.getLogger(GenericLookupProvider.class);
 
   private String lookupUri = null;
   private String id = null;

@@ -1,14 +1,13 @@
 package to.science.core.modelx.mapper;
 
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import to.science.core.modelx.amb.AbstractAmbMapper;
 
 public class AmbMapperImpl extends AbstractAmbMapper {
   
-  final static Logger logger = LoggerFactory.getLogger(AmbMapperImpl.class);
+  final static Logger logger = Logger.getLogger(AmbMapperImpl.class);
 
   @Override
   public JSONObject getAmbJSONObject() {

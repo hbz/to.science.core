@@ -7,8 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.Iterator;
 
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import to.science.core.model.implementation.Affiliation;
 import to.science.core.util.GenericPropertiesLoader;
@@ -43,7 +42,7 @@ import to.science.core.util.GenericPropertiesLoader;
  */
 public abstract class AbstractAgent extends AbstractSimpleObject implements Agent, SimpleObject{
 
-  final static Logger logger = LoggerFactory.getLogger(AbstractAgent.class);
+  final static Logger logger = Logger.getLogger(AbstractAgent.class);
 
   protected GenericPropertiesLoader genPropLoad = new GenericPropertiesLoader();
   protected LinkedHashMap<String,String> model = new LinkedHashMap<>();

@@ -5,8 +5,7 @@ import java.util.Hashtable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import to.science.core.model.implementation.Creator;
 import to.science.core.model.implementation.Department;
@@ -37,7 +36,7 @@ public abstract class AbstractAmbMapper implements AmbMapper {
   private Hashtable<String, AbstractToScienceModel> tosClasses = new Hashtable<>();
   private Hashtable<String, String> mappingNames = new Hashtable<>();
 
-  final static Logger logger = LoggerFactory.getLogger(AbstractAmbMapper.class);
+  final static Logger logger = Logger.getLogger(AbstractAmbMapper.class);
 
   public AbstractAmbMapper() {
     setTosModels();

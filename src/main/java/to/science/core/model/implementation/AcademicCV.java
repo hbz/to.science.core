@@ -3,14 +3,10 @@
  */
 package to.science.core.model.implementation;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import to.science.core.model.model.AbstractAgent;
 import to.science.core.model.model.AbstractSimpleObject;
 import to.science.core.model.model.SimpleObject;
-import to.science.core.util.GenericPropertiesLoader;
-import to.science.net.util.GenericLookupProvider;
 
 /**
  * <p>
