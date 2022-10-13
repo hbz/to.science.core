@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+  import org.apache.logging.log4j.Logger;
 
 import to.science.core.model.model.AbstractSimpleArray;
 import to.science.core.model.model.SimpleArray;
@@ -27,7 +28,7 @@ import to.science.core.model.model.ToScienceModel;
  */
 public class YearOfCopyright extends AbstractSimpleArray implements SimpleArray, ToScienceModel {
 
-  final static Logger logger = Logger.getLogger(YearOfCopyright.class);
+  final static Logger logger = LogManager.getLogger(YearOfCopyright.class);
   public ArrayList<String> list = new ArrayList<String>();
   
   @Override

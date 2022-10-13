@@ -8,7 +8,8 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.json.JSONObject;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+  import org.apache.logging.log4j.Logger;
 
 
 /**
@@ -31,7 +32,7 @@ import org.apache.log4j.Logger;
  */
 public abstract class AbstractSimpleObject extends AbstractToScienceModel implements SimpleObject {
   
-  final static Logger logger = Logger.getLogger(AbstractSimpleObject.class);
+  final static Logger logger = LogManager.getLogger(AbstractSimpleObject.class);
 
   // private ArrayList<HashMap<String,Object>> simpleObject = new ArrayList<>();
   public HashMap<String,String> simpleObject = new HashMap<>();

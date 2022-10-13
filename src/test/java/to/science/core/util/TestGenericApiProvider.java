@@ -8,7 +8,8 @@ import static org.junit.Assert.assertEquals;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+  import org.apache.logging.log4j.Logger;
 
 import to.science.net.util.GenericLookupProvider;
 
@@ -18,7 +19,7 @@ import to.science.net.util.GenericLookupProvider;
  */
 public class TestGenericApiProvider {
 
-  final static Logger logger = Logger.getLogger(TestGenericApiProvider.class);
+  final static Logger logger = LogManager.getLogger(TestGenericApiProvider.class);
 
   @Test
   public void checkForResponse() {
