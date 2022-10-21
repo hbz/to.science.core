@@ -46,7 +46,7 @@ public class DescribedBy extends AbstractSimpleObject implements SimpleObject{
   
   @Override
   public JSONObject getAmbJSONObject() {
-    JSONObject ambJSONObject = new JSONObject();;
+    JSONObject ambJSONObject = new JSONObject();
     // TODO implement
     return ambJSONObject;
   }
