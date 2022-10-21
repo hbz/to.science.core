@@ -2,6 +2,7 @@ package to.science.core.modelx.amb;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.LinkedHashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 
 import to.science.core.model.implementation.Creator;
 import to.science.core.model.implementation.Department;
+import to.science.core.model.implementation.DescribedBy;
 import to.science.core.model.implementation.Description;
 import to.science.core.model.implementation.Funder;
 import to.science.core.model.implementation.Language;
@@ -36,7 +38,9 @@ public abstract class AbstractAmbMapper implements AmbMapper {
   
   private Hashtable<String, AbstractToScienceModel> tosClasses = new Hashtable<>();
   private Hashtable<String, String> mappingNames = new Hashtable<>();
-
+  private LinkedHashMap<String, String> describedByMap = new LinkedHashMap<>();
+  private String namespace = "orca";
+  
   final static Logger logger = LogManager.getLogger(AbstractAmbMapper.class);
 
   public AbstractAmbMapper() {
@@ -45,7 +49,14 @@ public abstract class AbstractAmbMapper implements AmbMapper {
   }
 
 
-  private void setTosModels() {
+  /**
+   * <p>
+   * Set up a Hashtable with keys/values, where keys are the to.science model
+   * target names and values instances of the appropriate Classes. 
+   * E.g. key "department" maps to new Instance of Department.class
+   * </p>
+   */
+private void setTosModels() {
 
     // create an Hashtable with all parts of to.science.model represented as
     // JSONObject
@@ -63,6 +74,7 @@ public abstract class AbstractAmbMapper implements AmbMapper {
     tosClasses.put("funder", new Funder());
     tosClasses.put("license", new License());
     tosClasses.put("hasPart", new Part());
+    tosClasses.put("isDescribedBy", new DescribedBy(describedByMap));
 
   }
 
@@ -86,6 +98,7 @@ public abstract class AbstractAmbMapper implements AmbMapper {
     mappingNames.put("license", "license");
     mappingNames.put("subject", "keywords");
     mappingNames.put("hasPart", "encoding");
+    mappingNames.put("isDescribedBy", "isDescribedBy");
     
   }
 
@@ -105,6 +118,16 @@ public abstract class AbstractAmbMapper implements AmbMapper {
     JSONObject tosJSONObj = new JSONObject();
     Enumeration<String> simpleArrayEnum = mappingNames.keys();
 
+    if (ambJSONObj.has("id")) {
+      String[] uriPart = ambJSONObj.get("id").toString().split(namespace + ":");
+      tosJSONObj.put("@id", namespace + ":" + uriPart[1]);
+      tosJSONObj.put("isPrimaryTopic",  namespace + ":" + uriPart[1]);
+      tosJSONObj.put("@context", uriPart[0].replace("resource/", "context.json"));
+      
+      describedByMap.put("@id", namespace + ":" + uriPart[1]);
+      describedByMap.put("describes", namespace + ":" + uriPart[1]);
+    }
+      
     try {
       while (simpleArrayEnum.hasMoreElements()) {
         String key = simpleArrayEnum.nextElement();
@@ -127,7 +150,7 @@ public abstract class AbstractAmbMapper implements AmbMapper {
             tosJSONObj.put(key, arr);
             logger.debug(obj.toString(1));
           }
-
+          
           else if (ambJSONObj.optJSONObject(mappingNames.get(key)) != null) {
             JSONObject obj = tosClasses.get(key).getFromAmbJSONObject(ambJSONObj.getJSONObject(mappingNames.get(key)));
             tosJSONObj.put(key, obj);
@@ -139,24 +162,39 @@ public abstract class AbstractAmbMapper implements AmbMapper {
             JSONArray arr = obj.getJSONArray(key);
             tosJSONObj.put(key, arr);
           }
+         
         }
       }
     } catch (Exception e) {
       logger.error(e.toString());
     }
     
-    if (ambJSONObj.has("id")) {
-      String[] uriPart = ambJSONObj.get("id").toString().split("orca:");
-      tosJSONObj.put("@id", "orca:" + uriPart[1]);
-      tosJSONObj.put("isPrimaryTopic",  "orca:" + uriPart[1]);
-      
-      // TODO implement the other mappings that require resource id
+    if(tosClasses.containsKey("isDescribedBy")) {
+      AbstractToScienceModel described = tosClasses.get("isDescribedBy");
+      JSONObject obj = described.getFromAmbJSONObject(ambJSONObj);
+      tosJSONObj.put("isDescribedBy", obj);
     }
-
+    
     tosJSONObj.put("contentType", "researchData");
 
     return tosJSONObj;
   };
   
+  /**
+   * Set Map with key/values of DescribedBy Instance
+   * @param isDescribedByMap
+   */
+  public void setIsDescribedByMap(LinkedHashMap<String,String> isDescribedByMap) {
+    this.describedByMap = isDescribedByMap;
+    tosClasses.put("isDescribedBy", new DescribedBy(isDescribedByMap));
+  }
+  
+  /**
+   * Set namespace of resource-Id, other than default namespace "orca" 
+   * @param namespace
+   */
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
 
 }
