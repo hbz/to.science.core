@@ -40,6 +40,7 @@ public abstract class AbstractAmbMapper implements AmbMapper {
   private Hashtable<String, String> mappingNames = new Hashtable<>();
   private LinkedHashMap<String, String> describedByMap = new LinkedHashMap<>();
   private String namespace = "orca";
+  private int debugCounter = 0;
   
   final static Logger logger = LogManager.getLogger(AbstractAmbMapper.class);
 
@@ -60,6 +61,7 @@ private void setTosModels() {
 
     // create an Hashtable with all parts of to.science.model represented as
     // JSONObject
+    logger.info("Initialize Hashtable with new TosModels for the " + ++debugCounter + ". time");
     tosClasses.put("affiliation", new Affiliation());
     tosClasses.put("creator", new Creator());
     tosClasses.put("contributor", new Contributor());

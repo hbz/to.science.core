@@ -1,6 +1,3 @@
-/**
- * 
- */
 package to.science.core.impl;
 
 import java.io.BufferedReader;
@@ -10,26 +7,21 @@ import java.util.LinkedHashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import org.json.JSONObject;
 
 import to.science.core.modelx.mapper.AmbMapperImpl;
 
-/**
- * @author aquast
- *
- */
-public class TestAmbMapper {
+public class ConsoleMapper {
 
-  final static Logger logger = LogManager.getLogger(TestAmbMapper.class);
+  final static Logger logger = LogManager.getLogger(ConsoleMapper.class);
 
   /**
    * @param args
    */
   public static void main(String[] args) {
     // get new instance of this class
-    logger.info("call for new TestAMBMapper");
-    TestAmbMapper amb = new TestAmbMapper();
+    logger.info("Call for new ConsoleMapper using AmbMapperImpl");
+    ConsoleMapper amb = new ConsoleMapper();
 
     LinkedHashMap<String,String> isDescribedByMap = new LinkedHashMap<>();
     isDescribedByMap.put("submittedBy", "Andres Quast");
@@ -39,7 +31,8 @@ public class TestAmbMapper {
     ambMapper.setIsDescribedByMap(isDescribedByMap);
     
     JSONObject tosJSONObj = ambMapper.getTosJSONObject(amb.loadExampleAmbSource());
-    System.out.println(tosJSONObj.toString(1));
+    //System.out.println(tosJSONObj.toString(1));
+    logger.info("Application finished");
 
   }
 
@@ -61,7 +54,7 @@ public class TestAmbMapper {
 
     } catch (Exception e) {
       e.printStackTrace();
-      // logger.error(e.getMessage());
+      logger.error(e.getMessage());
     }
 
     return ambJSONObj;
