@@ -31,7 +31,7 @@ public class ConsoleMapper {
     ambMapper.setIsDescribedByMap(isDescribedByMap);
     
     JSONObject tosJSONObj = ambMapper.getTosJSONObject(amb.loadExampleAmbSource());
-    //System.out.println(tosJSONObj.toString(1));
+    System.out.println(tosJSONObj.toString(1));
     logger.info("Application finished");
 
   }
