@@ -1,3 +1,5 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2edbb771373c4c308e3affb75968071c)](https://www.codacy.com/gh/hbz/to.science.core/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hbz/to.science.core&amp;utm_campaign=Badge_Grade)
+
 # About #
 
 ## About the Toolbox ##
@@ -17,12 +19,10 @@ The core components of the Toolbox will be restructured in an independent module
 
 The to.science data model is thought to be <em>open</em> for enhancements according the future needs meanwhile it aims to be <em>closed</em> to modifications of the already existing data model.  
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2edbb771373c4c308e3affb75968071c)](https://www.codacy.com/gh/hbz/to.science.core/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hbz/to.science.core&amp;utm_campaign=Badge_Grade)
-
 ## Prerequisites ##
 
-- OpenJDK 1.8 or above
-- Maven 3.x or so for integration and deployment
+-    OpenJDK 1.8 or above
+-    Maven 3.x or so for integration and deployment
 
 ## Installation ##
 
