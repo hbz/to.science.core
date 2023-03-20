@@ -21,8 +21,8 @@ The to.science data model is thought to be <em>open</em> for enhancements accord
 
 ## Prerequisites ##
 
--  OpenJDK 1.8 or above
--  Maven 3.x or so for integration and deployment
+-   OpenJDK 1.8 or above
+-   Maven 3.x or so for integration and deployment
 
 ## Installation ##
 
