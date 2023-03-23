@@ -89,8 +89,8 @@ private void setTosModels() {
    */
   private void setMappings() {
 
-    mappingNames.put("department", "learningResourceType");
-    mappingNames.put("medium", "about");
+    mappingNames.put("medium", "learningResourceType");
+    mappingNames.put("department", "about");
     mappingNames.put("creator", "creator");
     mappingNames.put("contributor", "contributor");
     mappingNames.put("description", "description");
@@ -101,7 +101,7 @@ private void setTosModels() {
     mappingNames.put("subject", "keywords");
     mappingNames.put("hasPart", "encoding");
     mappingNames.put("isDescribedBy", "isDescribedBy");
-    
+    mappingNames.put("language", "inLanguage");
   }
 
   /**
@@ -135,7 +135,7 @@ private void setTosModels() {
         String key = simpleArrayEnum.nextElement();
         if (ambJSONObj.has(mappingNames.get(key))) {
           JSONArray ambArr = ambJSONObj.optJSONArray(mappingNames.get(key));
-          if (ambArr != null && !mappingNames.get(key).equals("keywords")) {
+          if (ambArr != null && !mappingNames.get(key).equals("keywords")&&!mappingNames.get(key).equals("inLanguage")) {
             JSONArray arr = new JSONArray();
             for (int i = 0; i < ambArr.length(); i++) {
               JSONObject obj = tosClasses.get(key).getFromAmbJSONObject(ambArr.optJSONObject(i));
@@ -151,6 +151,35 @@ private void setTosModels() {
             JSONArray arr = obj.getJSONArray(key);
             tosJSONObj.put(key, arr);
             logger.debug(obj.toString(1));
+          }
+          
+          else if (mappingNames.get(key).equals("inLanguage")) {
+        	 Language language = null;
+        	 String [] languageArr = null;
+        	 String towLetterLanguageID =null;
+        	 JSONObject  jsLanguage = null;
+        	 JSONArray jArr = new JSONArray();
+        	 
+         	 Object inLanguageValue =  ambJSONObj.get("inLanguage");
+         	    	 
+         	  if(inLanguageValue.toString().contains(",")) {   
+         		 languageArr =  inLanguageValue.toString().split(",");
+         	  }else {
+         		 languageArr = new String[1];
+         		 languageArr[0] = inLanguageValue.toString();
+         	  }        	  
+         	     for (int i = 0; i<languageArr.length;i++) {
+         		     String buffer = languageArr[i];
+         		     towLetterLanguageID = buffer.toString().substring(buffer.toString().indexOf("\"") + 1, buffer.toString().lastIndexOf("\""));
+                     language = new Language();        	  
+         	         language.setById(towLetterLanguageID);
+         	         language.setBy2LetterTag(towLetterLanguageID); 
+         		     jsLanguage = language.getJSONObject(); 
+         		     jArr.put(jsLanguage);
+         	     }
+
+               tosJSONObj.put(key, jArr);
+               logger.debug(jsLanguage.toString(1));
           }
           
           else if (ambJSONObj.optJSONObject(mappingNames.get(key)) != null) {
