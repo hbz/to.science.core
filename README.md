@@ -21,8 +21,8 @@ The to.science data model is thought to be <em>open</em> for enhancements accord
 
 ## Prerequisites ##
 
--    OpenJDK 1.8 or above
--    Maven 3.x or so for integration and deployment
+-	OpenJDK 1.8 or above
+-   Maven 3.x or so for integration and deployment
 
 ## Installation ##
 
@@ -37,14 +37,14 @@ Use with Maven via pom.xml:
 <dependency>
     <groupId>io.github.hbz</groupId>
     <artifactId>to.science.core</artifactId>
-    <version>1.1.0</version>
+    <version>1.3.4</version>
 </dependency>
 ```
 
 Use with SBT via build.sbt:
 
 ```txt
-libraryDependencies += "io.github.hbz" % "to.science.core" % "1.1.0"
+libraryDependencies += "io.github.hbz" % "to.science.core" % "1.3.4"
 ```
 
 Get further details for integration at  https://central.sonatype.dev/artifact/io.github.hbz/to.science.core/1.1.0/overview
