@@ -156,7 +156,7 @@ private void setTosModels() {
           else if (mappingNames.get(key).equals("inLanguage")) {
         	 Language language = null;
         	 String [] languageArr = null;
-        	 String towLetterLanguageID =null;
+        	 String twoLetterLanguageID =null;
         	 JSONObject  jsLanguage = null;
         	 JSONArray jArr = new JSONArray();
         	 
@@ -170,10 +170,10 @@ private void setTosModels() {
          	  }        	  
          	     for (int i = 0; i<languageArr.length;i++) {
          		     String buffer = languageArr[i];
-         		     towLetterLanguageID = buffer.toString().substring(buffer.toString().indexOf("\"") + 1, buffer.toString().lastIndexOf("\""));
+         		     twoLetterLanguageID = buffer.substring(buffer.indexOf("\"") + 1, buffer.lastIndexOf("\""));
                      language = new Language();        	  
-         	         language.setById(towLetterLanguageID);
-         	         language.setBy2LetterTag(towLetterLanguageID); 
+         	         language.setById(twoLetterLanguageID);
+         	         language.setBy2LetterTag(twoLetterLanguageID); 
          		     jsLanguage = language.getJSONObject(); 
          		     jArr.put(jsLanguage);
          	     }
