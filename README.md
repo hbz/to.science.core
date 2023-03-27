@@ -22,7 +22,7 @@ The to.science data model is thought to be <em>open</em> for enhancements accord
 
 ## License ##
 
-to.science.core is licensed under [LGPL](LICENSE)
+to.science.core is licensed under [Apache License 2.0](LICENSE)
 
 
 ## Prerequisites ##
