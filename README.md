@@ -20,6 +20,11 @@ The core components of the Toolbox will be restructured in an independent module
 
 The to.science data model is thought to be <em>open</em> for enhancements according the future needs meanwhile it aims to be <em>closed</em> to modifications of the already existing data model.  
 
+## License ##
+
+to.science.core is licensed under [LGPL](LICENSE)
+
+
 ## Prerequisites ##
 
 -	OpenJDK 1.8 or above
@@ -50,4 +55,4 @@ libraryDependencies += "io.github.hbz" % "to.science.core" % "1.3.4"
 
 Get further details for integration at  https://central.sonatype.dev/artifact/io.github.hbz/to.science.core/1.1.0/overview
 
-For running to.science.core standalone you can use the latest release to.science.core-jar-with-dependencies.jar file
+For running to.science.core standalone you can use the latest release to.science.core-jar-with-dependencies.jar file from the [releases](https://github.com/hbz/to.science.core/releases)
