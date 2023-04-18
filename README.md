@@ -1,4 +1,4 @@
-[![to.science Logo](to.science.svg)](https://github.com/hbz/to.science.core)
+[![to.science Logo](to.science-small.png)](https://github.com/hbz/to.science.core)
 
 # About #
 
