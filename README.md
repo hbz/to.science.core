@@ -1,7 +1,9 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2edbb771373c4c308e3affb75968071c)](https://www.codacy.com/gh/hbz/to.science.core/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hbz/to.science.core&amp;utm_campaign=Badge_Grade) 
-[![build](https://github.com/hbz/to.science.core/actions/workflows/maven.yml/badge.svg)](https://github.com/hbz/to.science.core/actions)
+[![to.science Logo](to.science.svg)](https://github.com/hbz/to.science.core)
 
 # About #
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2edbb771373c4c308e3affb75968071c)](https://www.codacy.com/gh/hbz/to.science.core/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hbz/to.science.core&amp;utm_campaign=Badge_Grade) 
+[![build](https://github.com/hbz/to.science.core/actions/workflows/maven.yml/badge.svg)](https://github.com/hbz/to.science.core/actions)
 
 ## About the Toolbox ##
 
