@@ -7309,11 +7309,11 @@
 		"multilangLabel": {}
 	},
 	{
-		"uri": "http://hbz-nrw.de/regal#authorAffiliationIndex",
+		"uri": "http://hbz-nrw.de/regal#creatorAffiliationIndex",
 		"comment": "",
 		"label": "AdressIndex",
 		"icon": "",
-		"name": "authorAffiliationIndex",
+		"name": "creatorAffiliationIndex",
 		"referenceType": "String",
 		"container": "",
 		"weight": "9",
@@ -10278,6 +10278,30 @@
 		"label": "Titel",
 		"icon": "",
 		"name": "title",
+		"referenceType": "String",
+		"container": "",
+		"weight": "2",
+		"type": "CONTEXT",
+		"multilangLabel": {}
+	},
+		{
+		"uri": "http://purl.org/dc/terms/ilias_Link",
+		"comment": "",
+		"label": "Ilias_Link",
+		"icon": "",
+		"name": "ilias_Link",
+		"referenceType": "String",
+		"container": "",
+		"weight": "2",
+		"type": "CONTEXT",
+		"multilangLabel": {}
+	},
+		{
+		"uri": "http://purl.org/dc/terms/moodle_Link",
+		"comment": "",
+		"label": "Moodle_Link",
+		"icon": "",
+		"name": "moodle_Link",
 		"referenceType": "String",
 		"container": "",
 		"weight": "2",
@@ -24782,11 +24806,11 @@
 		"multilangLabel": {}
 	},
 	{
-		"uri": "http://hbz-nrw.de/regal#authorAffiliation",
+		"uri": "http://hbz-nrw.de/regal#creatorAffiliation",
 		"comment": "",
-		"label": "Hochschule",
+		"label": "Hochschule (Autoren)",
 		"icon": "",
-		"name": "authorAffiliation",
+		"name": "creatorAffiliation",
 		"referenceType": "String",
 		"container": "@list",
 		"weight": "5",
@@ -24796,7 +24820,7 @@
 	{
 		"uri": "http://hbz-nrw.de/regal#contributorAffiliation",
 		"comment": "",
-		"label": "Hochschule",
+		"label": "Hochschule (Beitragende)",
 		"icon": "",
 		"name": "contributorAffiliation",
 		"referenceType": "String",
@@ -24831,11 +24855,11 @@
 		"multilangLabel": {}
 	},
 	{
-		"uri": "http://hbz-nrw.de/regal#authorAcademicDegree",
+		"uri": "http://hbz-nrw.de/regal#creatorAcademicDegree",
 		"comment": "",
-		"label": "Akademischer Grad",
+		"label": "Akademischer Grad (Autoren)",
 		"icon": "",
-		"name": "authorAcademicDegree",
+		"name": "creatorAcademicDegree",
 		"referenceType": "String",
 		"container": "@list",
 		"weight": "5",
@@ -24843,11 +24867,11 @@
 		"multilangLabel": {}
 	},
 	{
-		"uri": "http://hbz-nrw.de/regal#authorAcademicDegreeIndex",
+		"uri": "http://hbz-nrw.de/regal#creatorAcademicDegreeIndex",
 		"comment": "",
-		"label": "authorAcademicDegreeIndex",
+		"label": "creatorAcademicDegreeIndex",
 		"icon": "",
-		"name": "authorAcademicDegreeIndex",
+		"name": "creatorAcademicDegreeIndex",
 		"referenceType": "String",
 		"container": "@list",
 		"weight": "5",
@@ -24857,7 +24881,7 @@
 	{
 		"uri": "http://hbz-nrw.de/regal#contributorAcademicDegree",
 		"comment": "",
-		"label": "Akademischer Grad",
+		"label": "Akademischer Grad (Beitragende)",
 		"icon": "",
 		"name": "contributorAcademicDegree",
 		"referenceType": "String",
@@ -25966,6 +25990,18 @@
 		"uri": "info:regal/zettel/titleHeader",
 		"comment": "",
 		"label": "Angaben zum Titel",
+		"icon": "",
+		"name": "",
+		"container": "",
+		"weight": "",
+		"type": "STORE",
+		"multilangLabel": {}
+	},
+	
+	{
+		"uri": "info:regal/zettel/iliasMoodleHeader",
+		"comment": "",
+		"label": "Link zum LMS",
 		"icon": "",
 		"name": "",
 		"container": "",
